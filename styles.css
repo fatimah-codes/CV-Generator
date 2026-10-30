@@ -1,0 +1,738 @@
+/* ============================================================
+   CV Studio — Animated Light Theme (Lilac + Light Pastel Combo)
+   Palette: Luminous Pearl (#faf9fe), Soft Lilac (#f1edfc),
+            Electric Violet (#7c3aed), Indigo (#6366f1),
+            Crisp Ink (#0f172a), Glass White (#ffffff)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@700;800;900&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+/* ============================================================
+   KEYFRAME ANIMATIONS
+   ============================================================ */
+
+/* Gentle shifting light gradient aura */
+@keyframes ambientDrift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Subtle float for badges and hero titles */
+@keyframes softFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+/* Pulse glow for step badge & highlights */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(124, 58, 237, 0.04);
+  }
+}
+
+/* Shimmer shine over buttons & progress bars */
+@keyframes shimmerBeam {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* Smooth pop-in for alerts, cards & popups */
+@keyframes modalPopIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.92) translateY(12px);
+  }
+  70% {
+    transform: scale(1.01) translateY(-2px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Entrance fade-up */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================================
+   CSS VARIABLES
+   ============================================================ */
+:root {
+  --font-head: 'Epilogue', sans-serif;
+  --font-body: 'DM Sans', -apple-system, sans-serif;
+  --c-text-main: #0f172a;
+  --c-text-muted: #64748b;
+  --c-primary: #7c3aed;
+  --c-primary-hover: #6d28d9;
+  --c-primary-light: #f5f3ff;
+  --c-primary-border: #ddd6fe;
+  --c-card-bg: rgba(255, 255, 255, 0.92);
+  --c-card-border: #e9e5f5;
+  --shadow-sm: 0 2px 8px -1px rgba(124, 58, 237, 0.06), 0 1px 4px -1px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 8px 24px -4px rgba(124, 58, 237, 0.1), 0 4px 12px -2px rgba(0, 0, 0, 0.04);
+  --shadow-hover: 0 14px 32px -6px rgba(124, 58, 237, 0.18), 0 6px 16px -3px rgba(0, 0, 0, 0.06);
+  --radius-pill: 9999px;
+  --radius-card: 16px;
+  --radius-input: 12px;
+}
+
+/* ============================================================
+   LIGHT ANIMATED BACKGROUND
+   ============================================================ */
+html,
+body,
+[data-testid="stApp"],
+[data-testid="stAppViewContainer"],
+[data-testid="stMain"],
+.main {
+  background: linear-gradient(135deg, #f8f6fe 0%, #fdf8f4 25%, #f3effc 50%, #faf8ff 75%, #f1ecfe 100%) !important;
+  background-size: 300% 300% !important;
+  animation: ambientDrift 18s ease infinite !important;
+  color: var(--c-text-main) !important;
+  font-family: var(--font-body) !important;
+  font-weight: 400 !important;
+  font-synthesis: none !important;
+}
+
+/* App container */
+.block-container {
+  padding: 2.2rem 2.5rem 5rem !important;
+  max-width: 860px !important;
+  animation: fadeSlideUp 0.5s ease-out !important;
+}
+
+/* Hide Streamlit header chrome */
+#MainMenu,
+header[data-testid="stHeader"],
+[data-testid="stToolbar"],
+[data-testid="stDecoration"],
+[data-testid="stStatusWidget"],
+footer {
+  display: none !important;
+}
+
+/* ============================================================
+   SIDEBAR (Soft Frosted Lavender Glass)
+   ============================================================ */
+[data-testid="stSidebar"] {
+  background: rgba(246, 243, 254, 0.88) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-right: 1.5px solid rgba(221, 214, 254, 0.7) !important;
+}
+
+[data-testid="stSidebar"] * {
+  font-family: var(--font-body) !important;
+  color: var(--c-text-main) !important;
+}
+
+[data-testid="stSidebarContent"] {
+  padding: 2rem 1.4rem !important;
+}
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+h1, h2, h3,
+[data-testid="stMarkdownContainer"] h1,
+[data-testid="stMarkdownContainer"] h2,
+[data-testid="stMarkdownContainer"] h3 {
+  font-family: var(--font-head) !important;
+  font-weight: 900 !important;
+  letter-spacing: -0.025em !important;
+  text-transform: lowercase !important;
+  line-height: 1.08 !important;
+}
+
+h1, [data-testid="stMarkdownContainer"] h1 {
+  font-size: clamp(28px, 5vw, 48px) !important;
+  color: #1e1b4b !important;
+  margin-bottom: 0.4rem !important;
+}
+
+h2, [data-testid="stMarkdownContainer"] h2 {
+  font-size: clamp(22px, 3.8vw, 34px) !important;
+  color: #2e1065 !important;
+  margin-top: 0.2rem !important;
+  margin-bottom: 0.4rem !important;
+}
+
+h3, [data-testid="stMarkdownContainer"] h3 {
+  font-size: clamp(17px, 2.6vw, 24px) !important;
+  color: #4338ca !important;
+}
+
+p, li, span, label, div {
+  font-family: var(--font-body) !important;
+  color: var(--c-text-main);
+}
+
+/* ============================================================
+   FORM LABELS (Crystal clear visibility)
+   ============================================================ */
+label,
+[data-testid="stWidgetLabel"],
+[data-testid="stWidgetLabel"] p,
+[data-testid="stWidgetLabel"] span {
+  font-family: var(--font-body) !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: #312e81 !important;
+  display: block !important;
+  margin-bottom: 4px !important;
+  opacity: 1 !important;
+}
+
+/* ============================================================
+   INPUTS & TEXTAREAS (Crisp White with Soft Lilac Border)
+   ============================================================ */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+textarea,
+.stTextInput > div > div > input,
+.stTextArea > div > div > textarea,
+.stNumberInput > div > div > input {
+  background-color: #ffffff !important;
+  border: 1.5px solid #d8b4fe !important;
+  border-radius: var(--radius-input) !important;
+  font-family: var(--font-body) !important;
+  font-size: 15px !important;
+  color: #0f172a !important;
+  padding: 10px 14px !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03) !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+input:focus,
+textarea:focus,
+.stTextInput > div > div > input:focus,
+.stTextArea > div > div > textarea:focus {
+  border-color: #7c3aed !important;
+  box-shadow: 0 0 0 3.5px rgba(124, 58, 237, 0.18), 0 2px 8px rgba(124, 58, 237, 0.08) !important;
+  outline: none !important;
+  background-color: #ffffff !important;
+}
+
+/* Input placeholder text */
+input::placeholder,
+textarea::placeholder {
+  color: #94a3b8 !important;
+  font-weight: 400 !important;
+}
+
+/* ============================================================
+   SELECTBOX / MULTISELECT
+   ============================================================ */
+[data-baseweb="select"] > div {
+  background-color: #ffffff !important;
+  border: 1.5px solid #d8b4fe !important;
+  border-radius: var(--radius-input) !important;
+  font-family: var(--font-body) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03) !important;
+  transition: all 0.2s ease !important;
+}
+
+[data-baseweb="select"] > div:hover {
+  border-color: #a855f7 !important;
+}
+
+[data-baseweb="tag"] {
+  background: linear-gradient(135deg, #ede9fe, #ddd6fe) !important;
+  border: 1px solid #c4b5fd !important;
+  border-radius: var(--radius-pill) !important;
+  color: #4c1d95 !important;
+  font-weight: 500 !important;
+}
+
+[data-baseweb="tag"] span {
+  color: #4c1d95 !important;
+}
+
+[data-baseweb="menu"],
+[data-baseweb="popover"] {
+  background-color: #ffffff !important;
+  border: 1.5px solid #ddd6fe !important;
+  border-radius: 14px !important;
+  box-shadow: var(--shadow-md) !important;
+  animation: modalPopIn 0.2s ease-out !important;
+}
+
+[data-baseweb="menu"] li,
+[data-baseweb="menu"] [role="option"] {
+  color: #1e1b4b !important;
+  font-family: var(--font-body) !important;
+}
+
+[data-baseweb="menu"] li:hover,
+[data-baseweb="menu"] [role="option"]:hover {
+  background-color: #f3e8ff !important;
+  color: #6b21a8 !important;
+}
+
+/* ============================================================
+   BUTTONS (CRITICAL FIX: 100% VISIBLE BOLD TEXT)
+   ============================================================ */
+
+/* Primary action buttons: Vibrant Violet Gradient + BRIGHT WHITE TEXT */
+.stButton > button,
+button[data-testid="baseButton-primary"] {
+  background: linear-gradient(135deg, #7c3aed 0%, #6366f1 100%) !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: var(--radius-pill) !important;
+  font-family: var(--font-body) !important;
+  font-size: 14.5px !important;
+  font-weight: 700 !important;
+  padding: 10px 28px !important;
+  min-height: 44px !important;
+  cursor: pointer !important;
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.35) !important;
+  transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  letter-spacing: 0.02em !important;
+}
+
+/* Force ALL inner elements of buttons to stay WHITE */
+.stButton > button *,
+.stButton > button p,
+.stButton > button span,
+.stButton > button div,
+button[data-testid="baseButton-primary"] * {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25) !important;
+}
+
+.stButton > button:hover,
+button[data-testid="baseButton-primary"]:hover {
+  background: linear-gradient(135deg, #6d28d9 0%, #4f46e5 100%) !important;
+  box-shadow: 0 8px 22px rgba(124, 58, 237, 0.45) !important;
+  transform: translateY(-2px) scale(1.01) !important;
+}
+
+.stButton > button:active {
+  transform: translateY(0px) scale(0.98) !important;
+}
+
+/* Secondary / Back / Outlined button styling */
+button[data-testid="baseButton-secondary"],
+.stButton > button[kind="secondary"] {
+  background: #ffffff !important;
+  color: #6d28d9 !important;
+  border: 1.5px solid #c4b5fd !important;
+  box-shadow: 0 2px 6px rgba(124, 58, 237, 0.08) !important;
+}
+
+button[data-testid="baseButton-secondary"] *,
+.stButton > button[kind="secondary"] * {
+  color: #6d28d9 !important;
+  font-weight: 700 !important;
+  text-shadow: none !important;
+}
+
+button[data-testid="baseButton-secondary"]:hover,
+.stButton > button[kind="secondary"]:hover {
+  background: #f5f3ff !important;
+  border-color: #7c3aed !important;
+  color: #5b21b6 !important;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.15) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Download buttons */
+.stDownloadButton > button {
+  background: linear-gradient(135deg, #059669 0%, #10b981 100%) !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: var(--radius-pill) !important;
+  font-family: var(--font-body) !important;
+  font-size: 14.5px !important;
+  font-weight: 700 !important;
+  min-height: 44px !important;
+  padding: 10px 24px !important;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3) !important;
+  transition: all 0.22s ease !important;
+}
+
+.stDownloadButton > button * {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+}
+
+.stDownloadButton > button:hover {
+  background: linear-gradient(135deg, #047857 0%, #059669 100%) !important;
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Number input increment/decrement buttons */
+.stNumberInput button {
+  background-color: #f3e8ff !important;
+  border: 1px solid #d8b4fe !important;
+  color: #6b21a8 !important;
+  border-radius: 8px !important;
+}
+
+.stNumberInput button * {
+  color: #6b21a8 !important;
+  font-weight: 700 !important;
+}
+
+/* ============================================================
+   PROGRESS BAR (Shimmering Violet)
+   ============================================================ */
+.stProgress > div > div {
+  background-color: #ede9fe !important;
+  border-radius: var(--radius-pill) !important;
+  height: 8px !important;
+}
+
+.stProgress > div > div > div {
+  background: linear-gradient(90deg, #7c3aed, #a855f7, #6366f1) !important;
+  background-size: 200% 100% !important;
+  animation: shimmerBeam 2.5s ease infinite !important;
+  border-radius: var(--radius-pill) !important;
+}
+
+/* ============================================================
+   PILL BADGE (Animated Glowing Tag)
+   ============================================================ */
+.pill-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+  color: #6d28d9;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 15px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1.5px solid #ddd6fe;
+  box-shadow: 0 2px 8px rgba(124, 58, 237, 0.08);
+  animation: pulseGlow 3s infinite ease-in-out;
+}
+
+/* ============================================================
+   WORDMARK (Animated Floating Brand)
+   ============================================================ */
+.wordmark {
+  font-family: var(--font-head);
+  font-size: 24px;
+  font-weight: 900;
+  background: linear-gradient(135deg, #6d28d9 0%, #4338ca 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.035em;
+  text-transform: lowercase;
+  line-height: 1;
+  display: inline-block;
+  animation: softFloat 4s ease-in-out infinite;
+}
+
+/* ============================================================
+   EXPANDERS & CARDS (Glass Card with Hover Lift)
+   ============================================================ */
+[data-testid="stExpander"] {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 1.5px solid #e9e5f5 !important;
+  border-radius: var(--radius-card) !important;
+  box-shadow: var(--shadow-sm) !important;
+  margin-bottom: 10px !important;
+  transition: all 0.25s ease !important;
+}
+
+[data-testid="stExpander"]:hover {
+  border-color: #c4b5fd !important;
+  box-shadow: var(--shadow-md) !important;
+  transform: translateY(-1px) !important;
+}
+
+[data-testid="stExpander"] summary {
+  padding: 0.75rem 1rem !important;
+}
+
+[data-testid="stExpander"] summary p {
+  font-family: var(--font-body) !important;
+  font-weight: 600 !important;
+  color: #312e81 !important;
+  font-size: 15px !important;
+}
+
+/* ============================================================
+   ALERTS, WARNINGS & NOTIFICATIONS (Animated Popups)
+   ============================================================ */
+[data-testid="stAlert"],
+[data-testid="stNotification"],
+.stAlert {
+  border-radius: 14px !important;
+  border: 1.5px solid #e0e7ff !important;
+  box-shadow: var(--shadow-sm) !important;
+  animation: modalPopIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+  font-family: var(--font-body) !important;
+}
+
+[data-testid="stAlert"] p,
+[data-testid="stAlert"] span {
+  font-family: var(--font-body) !important;
+  font-weight: 500 !important;
+}
+
+/* Warning box */
+div[data-baseweb="notification"][kind="warning"],
+.element-container:has([data-testid="stAlert"][data-type="warning"]) [data-testid="stAlert"] {
+  background-color: #fffbeb !important;
+  border-color: #fde68a !important;
+}
+
+div[data-baseweb="notification"][kind="warning"] p,
+.element-container:has([data-testid="stAlert"][data-type="warning"]) [data-testid="stAlert"] p {
+  color: #92400e !important;
+}
+
+/* Info box */
+div[data-baseweb="notification"][kind="info"],
+.element-container:has([data-testid="stAlert"][data-type="info"]) [data-testid="stAlert"] {
+  background-color: #eff6ff !important;
+  border-color: #bfdbfe !important;
+}
+
+div[data-baseweb="notification"][kind="info"] p,
+.element-container:has([data-testid="stAlert"][data-type="info"]) [data-testid="stAlert"] p {
+  color: #1e40af !important;
+}
+
+/* Success box */
+div[data-baseweb="notification"][kind="positive"],
+.element-container:has([data-testid="stAlert"][data-type="success"]) [data-testid="stAlert"] {
+  background-color: #ecfdf5 !important;
+  border-color: #a7f3d0 !important;
+}
+
+div[data-baseweb="notification"][kind="positive"] p,
+.element-container:has([data-testid="stAlert"][data-type="success"]) [data-testid="stAlert"] p {
+  color: #065f46 !important;
+}
+
+/* Error box */
+div[data-baseweb="notification"][kind="negative"],
+.element-container:has([data-testid="stAlert"][data-type="error"]) [data-testid="stAlert"] {
+  background-color: #fef2f2 !important;
+  border-color: #fecaca !important;
+}
+
+div[data-baseweb="notification"][kind="negative"] p,
+.element-container:has([data-testid="stAlert"][data-type="error"]) [data-testid="stAlert"] p {
+  color: #991b1b !important;
+}
+
+/* ============================================================
+   TABS (Interactive Pill Tabs)
+   ============================================================ */
+[data-testid="stTabs"] [role="tablist"] {
+  gap: 8px !important;
+  border-bottom: 2px solid #ede9fe !important;
+  padding-bottom: 2px !important;
+}
+
+[data-testid="stTabs"] [role="tab"] {
+  font-family: var(--font-body) !important;
+  color: #64748b !important;
+  font-weight: 600 !important;
+  border-radius: 8px 8px 0 0 !important;
+  padding: 8px 16px !important;
+  transition: all 0.2s ease !important;
+}
+
+[data-testid="stTabs"] [role="tab"][aria-selected="true"] {
+  color: #6d28d9 !important;
+  border-bottom: 3px solid #7c3aed !important;
+  font-weight: 700 !important;
+}
+
+[data-testid="stTabs"] [role="tab"]:hover {
+  color: #4c1d95 !important;
+  background-color: #f5f3ff !important;
+}
+
+/* ============================================================
+   CV PREVIEW PAPER (Clean White Document Look)
+   ============================================================ */
+.cv-preview {
+  background: #ffffff;
+  border-radius: var(--radius-card);
+  padding: 2.8rem 3rem;
+  font-family: 'DM Sans', Arial, sans-serif;
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: #111827 !important;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 12px 36px -4px rgba(124, 58, 237, 0.12), 0 4px 12px rgba(0, 0, 0, 0.05);
+  animation: modalPopIn 0.4s ease-out;
+}
+
+.cv-preview h1 {
+  font-family: 'DM Sans', Arial, sans-serif !important;
+  font-size: 24px !important;
+  font-weight: 700 !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+  line-height: 1.2 !important;
+  margin-bottom: 4px !important;
+  color: #0f172a !important;
+}
+
+.cv-preview h2 {
+  font-family: 'DM Sans', Arial, sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.12em !important;
+  color: #64748b !important;
+  margin: 1.6rem 0 0.5rem !important;
+  padding-bottom: 5px !important;
+  border-bottom: 1.5px solid #e2e8f0 !important;
+  line-height: 1.4 !important;
+}
+
+.cv-preview h3 {
+  font-family: 'DM Sans', Arial, sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+  margin: 12px 0 2px !important;
+  line-height: 1.3 !important;
+  color: #0f172a !important;
+}
+
+.cv-preview p, .cv-preview li, .cv-preview span {
+  color: #1f2937 !important;
+}
+
+.cv-preview p {
+  margin-bottom: 8px;
+}
+
+.cv-preview ul {
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+.cv-preview li {
+  margin-bottom: 4px;
+}
+
+.cv-preview .cv-contact {
+  color: #475569 !important;
+  font-size: 13px;
+}
+
+.cv-preview .cv-dates {
+  color: #64748b !important;
+  font-size: 13px;
+  float: right;
+  font-weight: 500;
+}
+
+.cv-preview .cv-company {
+  font-weight: 600;
+  color: #334155 !important;
+}
+
+/* ============================================================
+   ATS SCORE PANEL (Animated Dashboard Card)
+   ============================================================ */
+.ats-panel {
+  background: linear-gradient(135deg, #ffffff 0%, #faf8fe 100%);
+  border: 1.5px solid #ddd6fe;
+  border-radius: var(--radius-card);
+  padding: 1.6rem 2rem;
+  margin-top: 1rem;
+  box-shadow: var(--shadow-md);
+  animation: modalPopIn 0.4s ease-out;
+}
+
+.ats-score-number {
+  font-family: var(--font-head);
+  font-size: 58px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+/* ============================================================
+   MODAL POPUP DIALOG STYLING
+   ============================================================ */
+[data-testid="stDialog"] > div:first-child {
+  border-radius: 20px !important;
+  box-shadow: 0 25px 60px -15px rgba(124, 58, 237, 0.35) !important;
+  border: 2px solid #ddd6fe !important;
+  animation: modalPopIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+/* ============================================================
+   DIVIDER
+   ============================================================ */
+hr {
+  border: none !important;
+  border-top: 1.5px solid #e9e5f5 !important;
+  margin: 2rem 0 !important;
+}
+
+/* ============================================================
+   MOBILE RESPONSIVENESS (<= 700px)
+   ============================================================ */
+@media (max-width: 700px) {
+  .block-container {
+    padding: 1.5rem 18px 3rem !important;
+  }
+  
+  h1, [data-testid="stMarkdownContainer"] h1 {
+    font-size: clamp(22px, 6.3vw, 30px) !important;
+  }
+  
+  h2, [data-testid="stMarkdownContainer"] h2 {
+    font-size: clamp(18px, 5vw, 24px) !important;
+  }
+  
+  .stButton > button,
+  .stDownloadButton > button {
+    width: 100% !important;
+    min-height: 46px !important;
+  }
+  
+  .cv-preview {
+    padding: 1.4rem 1.2rem;
+  }
+}
