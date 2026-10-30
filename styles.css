@@ -16,9 +16,11 @@
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
@@ -26,9 +28,12 @@
 
 /* Subtle float for badges and hero titles */
 @keyframes softFloat {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-4px);
   }
@@ -36,9 +41,12 @@
 
 /* Pulse glow for step badge & highlights */
 @keyframes pulseGlow {
-  0%, 100% {
+
+  0%,
+  100% {
     box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.25);
   }
+
   50% {
     box-shadow: 0 0 0 6px rgba(124, 58, 237, 0.04);
   }
@@ -49,6 +57,7 @@
   0% {
     background-position: -200% center;
   }
+
   100% {
     background-position: 200% center;
   }
@@ -60,9 +69,11 @@
     opacity: 0;
     transform: scale(0.92) translateY(12px);
   }
+
   70% {
     transform: scale(1.01) translateY(-2px);
   }
+
   100% {
     opacity: 1;
     transform: scale(1) translateY(0);
@@ -75,6 +86,7 @@
     opacity: 0;
     transform: translateY(16px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -160,7 +172,9 @@ footer {
 /* ============================================================
    TYPOGRAPHY
    ============================================================ */
-h1, h2, h3,
+h1,
+h2,
+h3,
 [data-testid="stMarkdownContainer"] h1,
 [data-testid="stMarkdownContainer"] h2,
 [data-testid="stMarkdownContainer"] h3 {
@@ -171,25 +185,32 @@ h1, h2, h3,
   line-height: 1.08 !important;
 }
 
-h1, [data-testid="stMarkdownContainer"] h1 {
+h1,
+[data-testid="stMarkdownContainer"] h1 {
   font-size: clamp(28px, 5vw, 48px) !important;
   color: #1e1b4b !important;
   margin-bottom: 0.4rem !important;
 }
 
-h2, [data-testid="stMarkdownContainer"] h2 {
+h2,
+[data-testid="stMarkdownContainer"] h2 {
   font-size: clamp(22px, 3.8vw, 34px) !important;
   color: #2e1065 !important;
   margin-top: 0.2rem !important;
   margin-bottom: 0.4rem !important;
 }
 
-h3, [data-testid="stMarkdownContainer"] h3 {
+h3,
+[data-testid="stMarkdownContainer"] h3 {
   font-size: clamp(17px, 2.6vw, 24px) !important;
   color: #4338ca !important;
 }
 
-p, li, span, label, div {
+p,
+li,
+span,
+label,
+div {
   font-family: var(--font-body) !important;
   color: var(--c-text-main);
 }
@@ -218,9 +239,9 @@ input[type="password"],
 input[type="email"],
 input[type="number"],
 textarea,
-.stTextInput > div > div > input,
-.stTextArea > div > div > textarea,
-.stNumberInput > div > div > input {
+.stTextInput>div>div>input,
+.stTextArea>div>div>textarea,
+.stNumberInput>div>div>input {
   background-color: #ffffff !important;
   border: 1.5px solid #d8b4fe !important;
   border-radius: var(--radius-input) !important;
@@ -234,8 +255,8 @@ textarea,
 
 input:focus,
 textarea:focus,
-.stTextInput > div > div > input:focus,
-.stTextArea > div > div > textarea:focus {
+.stTextInput>div>div>input:focus,
+.stTextArea>div>div>textarea:focus {
   border-color: #7c3aed !important;
   box-shadow: 0 0 0 3.5px rgba(124, 58, 237, 0.18), 0 2px 8px rgba(124, 58, 237, 0.08) !important;
   outline: none !important;
@@ -252,7 +273,7 @@ textarea::placeholder {
 /* ============================================================
    SELECTBOX / MULTISELECT
    ============================================================ */
-[data-baseweb="select"] > div {
+[data-baseweb="select"]>div {
   background-color: #ffffff !important;
   border: 1.5px solid #d8b4fe !important;
   border-radius: var(--radius-input) !important;
@@ -261,7 +282,7 @@ textarea::placeholder {
   transition: all 0.2s ease !important;
 }
 
-[data-baseweb="select"] > div:hover {
+[data-baseweb="select"]>div:hover {
   border-color: #a855f7 !important;
 }
 
@@ -303,7 +324,7 @@ textarea::placeholder {
    ============================================================ */
 
 /* Primary action buttons: Vibrant Violet Gradient + BRIGHT WHITE TEXT */
-.stButton > button,
+.stButton>button,
 button[data-testid="baseButton-primary"] {
   background: linear-gradient(135deg, #7c3aed 0%, #6366f1 100%) !important;
   color: #ffffff !important;
@@ -321,30 +342,30 @@ button[data-testid="baseButton-primary"] {
 }
 
 /* Force ALL inner elements of buttons to stay WHITE */
-.stButton > button *,
-.stButton > button p,
-.stButton > button span,
-.stButton > button div,
+.stButton>button *,
+.stButton>button p,
+.stButton>button span,
+.stButton>button div,
 button[data-testid="baseButton-primary"] * {
   color: #ffffff !important;
   font-weight: 700 !important;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25) !important;
 }
 
-.stButton > button:hover,
+.stButton>button:hover,
 button[data-testid="baseButton-primary"]:hover {
   background: linear-gradient(135deg, #6d28d9 0%, #4f46e5 100%) !important;
   box-shadow: 0 8px 22px rgba(124, 58, 237, 0.45) !important;
   transform: translateY(-2px) scale(1.01) !important;
 }
 
-.stButton > button:active {
+.stButton>button:active {
   transform: translateY(0px) scale(0.98) !important;
 }
 
 /* Secondary / Back / Outlined button styling */
 button[data-testid="baseButton-secondary"],
-.stButton > button[kind="secondary"] {
+.stButton>button[kind="secondary"] {
   background: #ffffff !important;
   color: #6d28d9 !important;
   border: 1.5px solid #c4b5fd !important;
@@ -352,14 +373,14 @@ button[data-testid="baseButton-secondary"],
 }
 
 button[data-testid="baseButton-secondary"] *,
-.stButton > button[kind="secondary"] * {
+.stButton>button[kind="secondary"] * {
   color: #6d28d9 !important;
   font-weight: 700 !important;
   text-shadow: none !important;
 }
 
 button[data-testid="baseButton-secondary"]:hover,
-.stButton > button[kind="secondary"]:hover {
+.stButton>button[kind="secondary"]:hover {
   background: #f5f3ff !important;
   border-color: #7c3aed !important;
   color: #5b21b6 !important;
@@ -368,7 +389,7 @@ button[data-testid="baseButton-secondary"]:hover,
 }
 
 /* Download buttons */
-.stDownloadButton > button {
+.stDownloadButton>button {
   background: linear-gradient(135deg, #059669 0%, #10b981 100%) !important;
   color: #ffffff !important;
   border: none !important;
@@ -382,13 +403,13 @@ button[data-testid="baseButton-secondary"]:hover,
   transition: all 0.22s ease !important;
 }
 
-.stDownloadButton > button * {
+.stDownloadButton>button * {
   color: #ffffff !important;
   font-weight: 700 !important;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
 }
 
-.stDownloadButton > button:hover {
+.stDownloadButton>button:hover {
   background: linear-gradient(135deg, #047857 0%, #059669 100%) !important;
   box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4) !important;
   transform: translateY(-2px) !important;
@@ -410,13 +431,13 @@ button[data-testid="baseButton-secondary"]:hover,
 /* ============================================================
    PROGRESS BAR (Shimmering Violet)
    ============================================================ */
-.stProgress > div > div {
+.stProgress>div>div {
   background-color: #ede9fe !important;
   border-radius: var(--radius-pill) !important;
   height: 8px !important;
 }
 
-.stProgress > div > div > div {
+.stProgress>div>div>div {
   background: linear-gradient(90deg, #7c3aed, #a855f7, #6366f1) !important;
   background-size: 200% 100% !important;
   animation: shimmerBeam 2.5s ease infinite !important;
@@ -637,7 +658,9 @@ div[data-baseweb="notification"][kind="negative"] p,
   color: #0f172a !important;
 }
 
-.cv-preview p, .cv-preview li, .cv-preview span {
+.cv-preview p,
+.cv-preview li,
+.cv-preview span {
   color: #1f2937 !important;
 }
 
@@ -694,7 +717,7 @@ div[data-baseweb="notification"][kind="negative"] p,
 /* ============================================================
    MODAL POPUP DIALOG STYLING
    ============================================================ */
-[data-testid="stDialog"] > div:first-child {
+[data-testid="stDialog"]>div:first-child {
   border-radius: 20px !important;
   box-shadow: 0 25px 60px -15px rgba(124, 58, 237, 0.35) !important;
   border: 2px solid #ddd6fe !important;
@@ -717,22 +740,40 @@ hr {
   .block-container {
     padding: 1.5rem 18px 3rem !important;
   }
-  
-  h1, [data-testid="stMarkdownContainer"] h1 {
+
+  h1,
+  [data-testid="stMarkdownContainer"] h1 {
     font-size: clamp(22px, 6.3vw, 30px) !important;
   }
-  
-  h2, [data-testid="stMarkdownContainer"] h2 {
+
+  h2,
+  [data-testid="stMarkdownContainer"] h2 {
     font-size: clamp(18px, 5vw, 24px) !important;
   }
-  
-  .stButton > button,
-  .stDownloadButton > button {
+
+  .stButton>button,
+  .stDownloadButton>button {
     width: 100% !important;
     min-height: 46px !important;
   }
-  
+
   .cv-preview {
     padding: 1.4rem 1.2rem;
   }
+}
+
+/* Keep Streamlit's icon font intact (must stay last) */
+span[data-testid="stIconMaterial"],
+[data-testid="stSidebar"] span[data-testid="stIconMaterial"],
+[data-testid="stExpander"] span[data-testid="stIconMaterial"],
+.material-icons,
+.material-symbols-rounded,
+.material-symbols-outlined {
+  font-family: "Material Symbols Rounded", "Material Symbols Outlined", "Material Icons" !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+  -webkit-font-feature-settings: "liga" !important;
+  font-feature-settings: "liga" !important;
 }
